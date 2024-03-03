@@ -11,6 +11,7 @@ public class Reservation {
 	private Date checkOut;
 	//static para não ser instanciado várias vezes na memória
 	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	
 	public Reservation(int roomNumber, Date checkIn, Date checkOut) {
 		
 		
@@ -18,7 +19,14 @@ public class Reservation {
 		this.checkIn = checkIn;
 		this.checkOut = checkOut;
 	}
-
+	
+	public int getRoomNumber() {
+		return this.roomNumber;
+	}
+	public void setRoomNumber(int roomNumber) {
+		this.roomNumber = roomNumber;
+	}
+	
 	
 	public Date getCheckIn() {
 		return checkIn;
@@ -47,9 +55,9 @@ public class Reservation {
 	@Override
 	public String toString() {
 		return "Room: "+roomNumber
-				+ "check-in: "+sdf.format(checkIn)
-				+ "check-out: " + sdf.format(checkOut)
-				+ "duration: " + duration() 
+				+ " - check-in: "+sdf.format(checkIn)
+				+ " - check-out: " + sdf.format(checkOut)
+				+ " - duration: " + duration() 
 				+ "nights";
 				
 	}
