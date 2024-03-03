@@ -38,10 +38,20 @@ public class Reservation {
 	}
 
 	
-	public void updateDates(Date checkIn, Date checkOut) {
+	public String updateDates(Date checkIn, Date checkOut) {
+		Date now = new Date();
+		if (checkIn.before(now) || checkOut.before(now)) {
+			return "Reservation date for updates must be futures";
+		}
+		if (!checkOut.after(checkIn)) {
+			return "Check-out must be after Check-in date";
+		} 
+			this.checkIn = checkIn;
+			this.checkOut = checkOut;
 		
-		this.checkIn = checkIn;
-		this.checkIn = checkOut;
+		return null;
+
+		
 		
 	}
 	
